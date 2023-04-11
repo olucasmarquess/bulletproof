@@ -51,7 +51,7 @@ const Form = (props) => {
     }
 
     await RatingService.create(store_params, rating_params);
-
+    
     props.loadStore()
 
     setName('');

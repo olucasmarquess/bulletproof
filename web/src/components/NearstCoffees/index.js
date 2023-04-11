@@ -49,7 +49,7 @@ const NearstCoffees = (props) => {
 
   useEffect(() => {
     loadNearstStores();
-  });
+  }, [props.latitude]);
 
   async function loadNearstStores() {
     const response = await StoreService.index(props.latitude, props.longitude);
@@ -85,9 +85,9 @@ const NearstCoffees = (props) => {
       </Body>
 
       <Footer>
-        <h2>By Lucas Marques</h2>
+        <h2>Hi!</h2>
         <Paragraph>
-          Just a small project to study about react native
+          Just a Simple APP
         </Paragraph>
       </Footer>
     </RightBar>

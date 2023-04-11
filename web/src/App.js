@@ -10,13 +10,13 @@ function App() {
   const [longitude, setLongitude] = useState(0);
   const [locations, setLocations] = useState([]);
   const [selected, setSelected] = useState({});
-
+  
   const { REACT_APP_GOOGLE_API_KEY } = process.env;
 
   useEffect(() => {
     setCurrentLocation();
-  })
-
+  }, [])
+ 
   async function setCurrentLocation() {
     await navigator.geolocation.getCurrentPosition(function (position) {
       setLatitude(position.coords.latitude);
@@ -42,7 +42,7 @@ function App() {
           {
             locations.map((item, index) => {
               return (
-                <Marker key={index} icon="/images/coffee-pin.png" title={item.name} animation="4"
+                <Marker key={index} icon="/images/coffee-pin.png" title={item.name} animation="4" 
                   position={{lat: item.geometry.location.lat, lng: item.geometry.location.lng}}
                   onClick={() => setSelected(item)}
                 />
@@ -58,8 +58,8 @@ function App() {
             position={{lat: latitude, lng: longitude}}
           />
 
-        {(latitude !== 0 && longitude !== 0) &&
-          <NearstCoffees latitude={latitude} longitude={longitude} />
+        {(latitude != 0 && longitude != 0) && 
+          <NearstCoffees latitude={latitude} longitude={longitude} /> 
         }
 
         </GoogleMap>

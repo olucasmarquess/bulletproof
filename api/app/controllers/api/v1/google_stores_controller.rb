@@ -1,7 +1,7 @@
 class Api::V1::GoogleStoresController < ApplicationController
-
   def index
-    render json: GetGoogleCoffeeListService.new(params[:latitude].to_f, params[:longitude].to_f).call
+    places = GetGoogleCoffeeListService.new(params[:latitude], params[:longitude]).call
+    render json: places
   end
 
   def show

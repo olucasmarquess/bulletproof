@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import EstablishmentsService from '../../services/establishment_service';
-import Ratings from './ratings';
+import Ratings from './Ratings';
 
 import styled from 'styled-components';
 
@@ -40,6 +40,7 @@ const Establishment = (props) => {
 
   async function getEstablishmentInformations() {
     try {
+      console.log(props.place.place_id)
       const response = await EstablishmentsService.show(props.place.place_id);
       setEstablishment(response.data.result);
     } catch (error) {
@@ -68,7 +69,7 @@ const Establishment = (props) => {
                 return(<Paragraph key={index}>{schedule}</Paragraph>)
               })
             }
-
+          
         </div>
       : <Paragraph>"Não há cadastro de dias e horários abertos"</Paragraph>
       }

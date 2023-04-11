@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import Form from './form';
+import Form from './Form';
 import StoreService from '../../../services/store.js';
 import ReactStars from "react-rating-stars-component";
 
@@ -27,7 +27,7 @@ const Ratings = (props) => {
         { store.ratings_count || 0 } Opiniões
         { store.ratings_average && <ReactStars edit={false} value={store.ratings_average || 0} /> }
       </h4>
-
+      
       <hr/>
 
       {
